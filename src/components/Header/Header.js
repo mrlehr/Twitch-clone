@@ -5,6 +5,7 @@ import menuIco from './MenuIco.svg'
 import croix from './Croix.svg'
 import {Link} from 'react-router-dom';
 
+
 const Header = () => {
 
   const [menu, showMenu] = useState(false);
@@ -54,49 +55,49 @@ const Header = () => {
 
 
     return (
-      <div>
+      
+    <div>
         <nav className="headerTop">
           {(menu || !smallScreen) && (
           <ul className="listeMenu">
-              <li onClick={hideMenu} className="liensNav">
-                  <Link className="lien" to="/">
-                    <img src={logo} alt="logo twitch" className="logo"/>
-                  </Link>
-              </li>
-              <li onClick={hideMenu} className="liensNav">
-                  <Link className="lien" to="/">
-                    Top Games
-                  </Link>
-              </li>
-              <li onClick={hideMenu} className="liensNav">
-                    <Link className="lien" to="/top-streams">
-                        Top Streams
-                    </Link>
-              </li>
-              <li className="liensNav">
-                  <form className="formSubmit" onSubmit={handleSubmit}>
-                      <input required value={searchInput} onChange={(e) => handleKeyPress(e)} type="text" className="inputRecherche"/>
-                  <Link
-                  className="lien"
-                  to={{
-                      pathname: `/resultats/${searchInput}`
-                  }}
-                  >
-                      <button type="submit">
-                          <img src={search} alt="icone loupe" className="logoLoupe"/>
-                      </button>
-                  </Link>
-                  </form>
-              </li>
-
+            <li onClick={hideMenu} className="liensNav">
+              <Link className="lien" to="/">
+                <img src={logo} alt="logo twitch" className="logo"/>
+              </Link>
+            </li>
+            <li onClick={hideMenu} className="liensNav">
+              <Link className="lien" to="/">
+                Top Games
+              </Link>
+            </li>
+            <li onClick={hideMenu} className="liensNav">
+              <Link className="lien" to="/top-streams">
+                Top Streams
+              </Link>
+            </li>
+            <li className="liensNav">
+              <form className="formSubmit" onSubmit={handleSubmit}>
+                <input required value={searchInput} onChange={(e) => handleKeyPress(e)} type="text" className="inputRecherche"/>
+              <Link
+              className="lien"
+              to={{
+                  pathname: `/resultats/${searchInput}`
+              }}
+              >
+                <button type="submit">
+                    <img src={search} alt="icone loupe" className="logoLoupe"/>
+                </button>
+              </Link>
+              </form>
+            </li>
           </ul>
 
           )}
           </nav>
-    <div className="menuResBtn">
-        <img onClick={toggleNavRes} src={!menu ? menuIco : croix} alt="icone menu responsive" className="menuIco"/>
-    </div>
-    </div>
+      <div className="menuResBtn">
+          <img onClick={toggleNavRes} src={!menu ? menuIco : croix} alt="icone menu responsive" className="menuIco"/>
+      </div>
+  </div>
    )
 }
 
